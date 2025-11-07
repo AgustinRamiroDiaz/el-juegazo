@@ -15,7 +15,7 @@ func _ready():
 	material.albedo_color = Color.from_hsv(hue, saturation, value)
 	$MeshInstance3D.set_surface_override_material(0, material)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	# Get input for left/right movement
 	var input_dir = Input.get_axis( "ui_right", "ui_left",)
 

@@ -5,6 +5,9 @@
 [sub_resource type="BoxMesh" id="BoxMesh_1"]
 size = Vector3(10, 1, 300)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_1"]
+size = Vector3(10, 1, 300)
+
 [node name="Floor" type="StaticBody3D"]
 script = ExtResource("1_floor")
 
@@ -12,6 +15,4 @@ script = ExtResource("1_floor")
 mesh = SubResource("BoxMesh_1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-
-[node name="BoxShape3D" type="BoxShape3D" parent="CollisionShape3D"]
-size = Vector3(10, 1, 300)
+shape = SubResource("BoxShape3D_1")
