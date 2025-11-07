@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkp4ynvr8x5h3"]
+[gd_scene load_steps=4 format=3 uid="uid://dr1qlhvg88a8p"]
 
-[ext_resource type="PackedScene" uid="uid://cvuqkj7vgx3wp" path="res://player.tscn" id="1_player"]
-[ext_resource type="PackedScene" uid="uid://bvp3ydcyx6h2r" path="res://floor.tscn" id="2_floor"]
-[ext_resource type="Script" path="res://main.gd" id="3_main"]
+[ext_resource type="PackedScene" path="res://player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://floor.tscn" id="2_floor"]
+[ext_resource type="Script" uid="uid://d2rfwyeauufgb" path="res://main.gd" id="3_main"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("3_main")
@@ -10,10 +10,10 @@ script = ExtResource("3_main")
 [node name="Player" parent="." instance=ExtResource("1_player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="Floor" parent="." instance=ExtResource("2_floor")]
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(-1, -2.9900356e-08, 8.215056e-08, 0, 0.93969285, 0.3420202, -8.742278e-08, 0.3420202, -0.93969285, 0, 3, -6)
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 15, 25)
+[node name="Floor" parent="." instance=ExtResource("2_floor")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 10, 0)

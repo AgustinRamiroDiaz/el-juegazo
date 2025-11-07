@@ -2,7 +2,7 @@ extends Node3D
 
 @export var obstacle_scene: PackedScene
 @export var spawn_distance: float = 100.0  # How far ahead to spawn obstacles
-@export var spawn_range: float = 20.0  # Random X position range
+@export var spawn_range: float = 5.0  # Random X position range (matches floor width)
 
 var game_active: bool = true
 

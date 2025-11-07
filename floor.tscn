@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://floor.gd" id="1_floor"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_1"]
-size = Vector3(50, 1, 300)
+size = Vector3(10, 1, 300)
 
 [node name="Floor" type="StaticBody3D"]
 script = ExtResource("1_floor")
@@ -14,4 +14,4 @@ mesh = SubResource("BoxMesh_1")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 
 [node name="BoxShape3D" type="BoxShape3D" parent="CollisionShape3D"]
-size = Vector3(50, 1, 300)
+size = Vector3(10, 1, 300)
