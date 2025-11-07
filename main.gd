@@ -35,6 +35,16 @@ func game_over():
 	# Stop spawning
 	$SpawnTimer.stop()
 
-	# Optionally, you can restart the game after a delay
-	await get_tree().create_timer(2.0).timeout
+	# Remove player from scene
+	$Player.queue_free()
+
+	# Show game over UI
+	$GameOverUI.visible = true
+
+func _on_retry_button_pressed():
+	# Reload the current scene to restart the game
 	get_tree().reload_current_scene()
+
+func _on_menu_button_pressed():
+	# Return to main menu
+	get_tree().change_scene_to_file("res://menu.tscn")
