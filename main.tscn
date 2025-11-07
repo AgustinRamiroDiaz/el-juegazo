@@ -1,8 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://dr1qlhvg88a8p"]
+[gd_scene load_steps=5 format=3 uid="uid://dr1qlhvg88a8p"]
 
 [ext_resource type="PackedScene" path="res://player.tscn" id="1_player"]
 [ext_resource type="PackedScene" path="res://floor.tscn" id="2_floor"]
 [ext_resource type="Script" uid="uid://d2rfwyeauufgb" path="res://main.gd" id="3_main"]
+
+[sub_resource type="Environment" id="Environment_1"]
+background_mode = 1
+background_color = Color(0.529412, 0.807843, 0.921569, 1)
+fog_enabled = true
+fog_light_color = Color(0.529412, 0.807843, 0.921569, 1)
+fog_density = 0.02
+fog_depth_begin = 20.0
+fog_depth_end = 80.0
 
 [node name="Main" type="Node3D"]
 script = ExtResource("3_main")
@@ -15,8 +24,11 @@ transform = Transform3D(-1, -2.9900356e-08, 8.215056e-08, 0, 0.93969285, 0.34202
 
 [node name="Floor" parent="." instance=ExtResource("2_floor")]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 10, 0)
+transform = Transform3D(0.866025, 0.353553, -0.353553, 0, 0.707107, 0.707107, 0.5, -0.612372, 0.612372, 0, 10, 0)
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 0.5
