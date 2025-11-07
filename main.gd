@@ -5,12 +5,22 @@ extends Node3D
 @export var spawn_range: float = 5.0  # Random X position range (matches floor width)
 
 var game_active: bool = true
+var is_paused: bool = false
 
 func _ready():
 	add_to_group("game_manager")
 
 	# Load the obstacle scene
 	obstacle_scene = load("res://obstacle.tscn")
+
+func _input(event):
+	if event.is_action_pressed("pause") and game_active:
+		toggle_pause()
+
+func toggle_pause():
+	is_paused = !is_paused
+	get_tree().paused = is_paused
+	$PauseUI.visible = is_paused
 
 func _on_spawn_timer_timeout():
 	if not game_active:
@@ -48,3 +58,16 @@ func _on_retry_button_pressed():
 func _on_menu_button_pressed():
 	# Return to main menu
 	get_tree().change_scene_to_file("res://menu.tscn")
+
+func _on_resume_button_pressed():
+	# Resume the game
+	toggle_pause()
+
+func _on_pause_menu_button_pressed():
+	# Unpause and return to main menu
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://menu.tscn")
+
+func _on_mobile_pause_button_pressed():
+	# Handle mobile pause button press
+	toggle_pause()
